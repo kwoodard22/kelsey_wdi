@@ -1,0 +1,12 @@
+<h1>Kelsey's Blog</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <% unless post.published.nil? %>
+      <li><%= link_to post.subject, post %>  (<%= post.published %>)</li>
+    <% end %>
+  <% end %>
+</ul>
+
+________________________<br><br>
+<strong><%= link_to 'ADD NEW POST', new_post_path %></strong>
