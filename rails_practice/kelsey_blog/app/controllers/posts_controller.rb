@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :draft, :destroy]
 
   def index
-    @posts = Post.all.order(:published).reverse
+    @posts = Post.most_recent
   end
 
   def show
@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def drafts
   end
 
    def create
@@ -63,7 +66,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:subject, :body, :published)
+      params.require(:post).permit(:subject, :body, :published, :draft_status)
     end
 
 
