@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :draft, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.most_recent
@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def drafts
+  def draft
+    @posts = Post.draft
   end
 
    def create
