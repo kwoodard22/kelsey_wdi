@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'posts/drafts' => 'posts#drafts'
-  resources :posts
+  get 'welcome/index'
+  get 'welcome/about_me' => 'welcome#about_me'
+  get 'posts/drafts' => 'posts#draft'
+  get 'posts/search' => 'posts#index'
+  resources :posts 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'welcome#index'
 
   # Example of regular route:
      

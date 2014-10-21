@@ -1,7 +1,0 @@
-<h1>Draft Posts</h1>
-
-<ul>
-  <% @Post.each do |post| %>
-    <li><%= link_to post.subject, post %>  (<%= post.published %>)</li>
-  <% end %>
-</ul>

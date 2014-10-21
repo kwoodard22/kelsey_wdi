@@ -1,10 +1,18 @@
-<h1>Kelsey's Blog</h1>
+<div class="header">
+  <h2>Kelsey's Blog</h2>
 
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.subject, post %>  (<%= post.published %>)</li>
+  <%= render 'search' %>
+</div>
+<ul class="posts">
+  <% if @posts.empty? %>
+    <li> No posts have been written </li>
+  <% else %>
+    <% @posts.each do |post| %>
+     <li class="post"><%= link_to post.subject, post %>  (<%= post.published %>)</li>
+  <% end %>
   <% end %>
 </ul>
 
 ________________________<br><br>
+<i class="fi-pencil"></i>
 <strong><%= link_to 'ADD NEW POST', new_post_path %></strong> | <strong><%= link_to 'DRAFTS', posts_drafts_path %></strong>

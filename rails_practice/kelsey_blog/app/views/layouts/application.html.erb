@@ -1,14 +1,20 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KelseyBlog</title>
+  <title>Kelsey's Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render :partial => 'layouts/header' %>
 
+  <div id="main">
+    <%= yield %>
+  </div>
+
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

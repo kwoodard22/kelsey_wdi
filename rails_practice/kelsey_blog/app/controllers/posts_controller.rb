@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.most_recent
+    if params[:q]
+      @posts = Post.search(params[:q])
+    else
+      @posts = Post.most_recent
+    end
+    # @posts = Post.most_recent.where(nil)
+    # @posts = Post.search(params[:search]) if params[:search].present?
   end
 
   def show
@@ -16,7 +22,7 @@ class PostsController < ApplicationController
   end
 
   def draft
-    @posts = Post.draft
+    @drafts = Post.draft
   end
 
    def create
